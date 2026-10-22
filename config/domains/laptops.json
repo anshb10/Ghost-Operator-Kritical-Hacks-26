@@ -1,0 +1,31 @@
+{
+  "label": "Business laptops",
+  "keywords": ["laptop", "notebook", "ultrabook", "thinkpad", "latitude", "macbook"],
+  "unit": "unit",
+  "fields": ["product_name", "sku", "price_usd", "cpu", "ram", "storage", "display_size", "operating_system", "warranty", "seller", "condition", "stock_status", "product_page_url"],
+  "attributes": {
+    "ram_gb":     {"from": "ram", "type": "gb"},
+    "storage_gb": {"from": "storage", "type": "gb"},
+    "display_in": {"from": "display_size", "type": "inches"},
+    "cpu":        {"from": "cpu", "type": "text"},
+    "cpu_tier":   {"from": "cpu", "type": "cpu_tier"},
+    "os":         {"from": "operating_system", "type": "text"}
+  },
+  "price_features": ["ram_gb", "storage_gb", "cpu_tier", "display_in"],
+  "default_constraints": [
+    {"attribute": "ram_gb", "op": ">=", "value": 16, "hard": true, "weight": 2},
+    {"attribute": "os", "op": "contains", "value": "pro", "hard": true, "weight": 2},
+    {"attribute": "storage_gb", "op": ">=", "value": 512, "hard": false, "weight": 1.5},
+    {"attribute": "cpu_tier", "op": ">=", "value": 2, "hard": false, "weight": 1},
+    {"attribute": "warranty_years", "op": ">=", "value": 3, "hard": false, "weight": 2},
+    {"attribute": "warranty_onsite", "op": "==", "value": 1, "hard": false, "weight": 1}
+  ],
+  "risk_model": {"annual_failure_rate": 0.06, "repair_cost_ratio": 0.35, "lifetime_years": 3},
+  "goal_template": "Find {item} matching: {criteria}. For up to {n} products listed, extract JSON {{\"products\":[{{\"product_name\",\"sku\",\"price_usd\",\"cpu\",\"ram\",\"storage\",\"display_size\",\"operating_system\",\"warranty\",\"seller\",\"condition\",\"stock_status\",\"product_page_url\"}}]}}. warranty = included warranty type and length exactly as shown (e.g. \"1 Year Depot/Carry-in\", \"3 Year ProSupport Onsite\"). price_usd = current price as a number. condition = new/refurbished/used. {hint} Do not add anything to cart, do not sign in, decline non-essential cookies.",
+  "vendors": [
+    {"key": "dell",   "name": "Dell",   "url": "https://www.dell.com/en-us/shop/scr/laptops/appref=business-laptops", "hint": "Prefer Latitude / Dell Pro lines."},
+    {"key": "lenovo", "name": "Lenovo", "url": "https://www.lenovo.com/us/en/d/business-laptops/", "hint": "Prefer ThinkPad models."},
+    {"key": "cdw",    "name": "CDW",    "url": "https://www.cdw.com/category/computers/laptops-notebook-computers/", "hint": "Include the CDW part number as sku."},
+    {"key": "newegg", "name": "Newegg", "url": "https://www.newegg.com/p/pl?d=business+laptop+16gb+windows+11+pro", "hint": "Include the seller name (Newegg or third-party marketplace seller)."}
+  ]
+}

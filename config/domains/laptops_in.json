@@ -1,0 +1,174 @@
+{
+  "label": "Business laptops (India, INR, GST)",
+  "currency": "INR",
+  "keywords": [
+    "laptop",
+    "notebook",
+    "ultrabook",
+    "thinkpad",
+    "latitude",
+    "macbook"
+  ],
+  "unit": "unit",
+  "fields": [
+    "product_name",
+    "sku",
+    "price_inr",
+    "cpu",
+    "ram",
+    "storage",
+    "display_size",
+    "operating_system",
+    "warranty",
+    "seller",
+    "condition",
+    "stock_status",
+    "product_page_url"
+  ],
+  "attributes": {
+    "ram_gb": {
+      "from": "ram",
+      "type": "gb"
+    },
+    "storage_gb": {
+      "from": "storage",
+      "type": "gb"
+    },
+    "display_in": {
+      "from": "display_size",
+      "type": "inches"
+    },
+    "cpu": {
+      "from": "cpu",
+      "type": "text"
+    },
+    "cpu_tier": {
+      "from": "cpu",
+      "type": "cpu_tier"
+    },
+    "os": {
+      "from": "operating_system",
+      "type": "text"
+    }
+  },
+  "price_features": [
+    "ram_gb",
+    "storage_gb",
+    "cpu_tier",
+    "display_in"
+  ],
+  "default_constraints": [
+    {
+      "attribute": "ram_gb",
+      "op": ">=",
+      "value": 16,
+      "hard": true,
+      "weight": 2
+    },
+    {
+      "attribute": "os",
+      "op": "contains",
+      "value": "pro",
+      "hard": true,
+      "weight": 2
+    },
+    {
+      "attribute": "storage_gb",
+      "op": ">=",
+      "value": 512,
+      "hard": false,
+      "weight": 1.5
+    },
+    {
+      "attribute": "cpu_tier",
+      "op": ">=",
+      "value": 2,
+      "hard": false,
+      "weight": 1
+    },
+    {
+      "attribute": "warranty_years",
+      "op": ">=",
+      "value": 3,
+      "hard": false,
+      "weight": 2
+    },
+    {
+      "attribute": "warranty_onsite",
+      "op": "==",
+      "value": 1,
+      "hard": false,
+      "weight": 1
+    }
+  ],
+  "risk_model": {
+    "annual_failure_rate": 0.06,
+    "repair_cost_ratio": 0.35,
+    "lifetime_years": 3
+  },
+  "tax": {
+    "kind": "gst",
+    "rate_pct": 18,
+    "hsn": "8471",
+    "source": "18% GST for laptops (HSN 8471), unchanged by the Sept 2025 GST rate rationalisation; confirm on the supplier's tax invoice"
+  },
+  "goal_template": "Find {item} matching: {criteria}. For up to {n} products listed, extract JSON {{\"products\":[{{\"product_name\",\"sku\",\"price_inr\",\"cpu\",\"ram\",\"storage\",\"display_size\",\"operating_system\",\"warranty\",\"seller\",\"condition\",\"stock_status\",\"product_page_url\"}}]}}. price_inr = current price in rupees as a number exactly as shown. warranty = included warranty type and length exactly as shown (e.g. \"1 Year Carry-in\", \"3 Year Onsite\"). condition = new/refurbished/used. {hint} Do not add anything to cart, do not sign in, do not enter a PIN code, decline non-essential cookies.",
+  "vendors": [
+    {
+      "key": "lenovoin",
+      "name": "Lenovo India",
+      "url": "https://www.lenovo.com/in/en/",
+      "hint": "Go to business laptops (ThinkPad / ThinkBook).",
+      "untested_live": true
+    },
+    {
+      "key": "dellin",
+      "name": "Dell India",
+      "url": "https://www.dell.com/en-in",
+      "hint": "Go to business laptops (Latitude / Dell Pro).",
+      "untested_live": true
+    },
+    {
+      "key": "hpin",
+      "name": "HP India",
+      "url": "https://www.hp.com/in-en/shop/",
+      "hint": "Go to business laptops (ProBook / EliteBook).",
+      "untested_live": true
+    },
+    {
+      "key": "nimbus",
+      "name": "Nimbus Systems (fixture)",
+      "url": "https://nimbus-systems.test/laptops",
+      "hint": "",
+      "fixture_only": true
+    },
+    {
+      "key": "kaveri",
+      "name": "Kaveri IT Distributors (fixture)",
+      "url": "https://kaveri-it.test/business-laptops",
+      "hint": "",
+      "fixture_only": true
+    },
+    {
+      "key": "sahyadri",
+      "name": "Sahyadri Office Tech (fixture)",
+      "url": "https://sahyadri-officetech.test/laptops",
+      "hint": "",
+      "fixture_only": true
+    },
+    {
+      "key": "deccan",
+      "name": "Deccan Digital Mart (fixture)",
+      "url": "https://deccan-digital.test/deals",
+      "hint": "",
+      "fixture_only": true
+    },
+    {
+      "key": "ganga",
+      "name": "Ganga Enterprise Supply (fixture)",
+      "url": "https://ganga-enterprise.test/it",
+      "hint": "",
+      "fixture_only": true
+    }
+  ]
+}

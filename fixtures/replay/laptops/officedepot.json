@@ -1,0 +1,77 @@
+{
+ "_source": "Real TinyFish run e58374de-ab73-4e91-8e52-77e703acc889 on 2026-10-16 (12 steps, 2m12s)",
+ "duration_s": 132,
+ "steps": [
+  "Opening officedepot.com Windows 11 Pro laptops",
+  "Declining non-essential cookies",
+  "Reading product grid",
+  "Opening Surface Laptop 7 listing",
+  "Reading HP ProBook 4 G2a listing",
+  "Reading Dell Pro 14 and ThinkPad T16 Gen 4 listings",
+  "Compiling extracted products as JSON"
+ ],
+ "result": {
+  "products": [
+   {
+    "cpu": "Intel Core Ultra 7 266V",
+    "ram": "16 GB",
+    "sku": "7973984",
+    "seller": "Office Depot",
+    "storage": "512 GB SSD",
+    "warranty": "1-Year Limited",
+    "condition": "new",
+    "price_usd": 1656.69,
+    "display_size": "13.8\"",
+    "product_name": "Microsoft Surface Laptop 7 13.8\" Touchscreen Copilot+ PC Notebook, 120 Hz, Intel Core Ultra 7 266V, 16 GB, 512 GB SSD, Platinum, Windows 11 Pro",
+    "stock_status": "In stock today",
+    "operating_system": "Windows 11 Pro",
+    "product_page_url": "https://www.officedepot.com/a/products/7973984/Microsoft-Surface-Laptop-7-138-Touchscreen/"
+   },
+   {
+    "cpu": "AMD Ryzen AI 5 430GHz",
+    "ram": "16 GB",
+    "sku": "6927669",
+    "seller": "Office Depot",
+    "storage": "512 GB SSD",
+    "warranty": "1-Year Limited",
+    "condition": "new",
+    "price_usd": 1405.86,
+    "display_size": "14\"",
+    "product_name": "HP ProBook 4 G2a Notebook Next Gen AI, Copilot+ PC, AMD Ryzen AI 5, 430GHz, Win 11 Pro, Radeon 840M, 16GB, 512GB SSD, Pike Silver Aluminum, DK0E8UTABA",
+    "stock_status": "In stock today",
+    "operating_system": "Windows 11 Pro",
+    "product_page_url": "https://www.officedepot.com/a/products/6927669/HP-ProBook-4-G2a-Notebook-Next/"
+   },
+   {
+    "cpu": "Intel Core 5 120U",
+    "ram": "16 GB",
+    "sku": "7859405",
+    "seller": "Office Depot",
+    "storage": "512 GB SSD",
+    "warranty": "1-Year Limited",
+    "condition": "new",
+    "price_usd": 1448.99,
+    "display_size": "14\"",
+    "product_name": "Dell Pro 14 PC14250 14\" Notebook, 60 Hz, Intel Core 5 120U, 16 GB, 512 GB SSD, Magnetite, Win 11 Pro",
+    "stock_status": "In stock today",
+    "operating_system": "Windows 11 Pro",
+    "product_page_url": "https://www.officedepot.com/a/products/7859405/Dell-Pro-14-PC14250-14-Notebook/"
+   },
+   {
+    "cpu": "AMD Ryzen AI 7 PRO",
+    "ram": "16 GB",
+    "sku": "8775394",
+    "seller": "Office Depot",
+    "storage": "512 GB SSD",
+    "warranty": "1-Year Limited",
+    "condition": "new",
+    "price_usd": 1439,
+    "display_size": "16\"",
+    "product_name": "Lenovo 16\" ThinkPad T16 Gen 4 21QN, Copilot+ PC, AMD Ryzen AI 7 PRO, Win 11 Pro, Radeon 860M, 16GB RAM, 512GB SSD TCG Opal Encryption 2, NVMe, Black",
+    "stock_status": "In stock today",
+    "operating_system": "Windows 11 Pro",
+    "product_page_url": "https://www.officedepot.com/a/products/8775394/Lenovo-16-ThinkPad-T16-Gen-4/"
+   }
+  ]
+ }
+}

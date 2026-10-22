@@ -1,0 +1,167 @@
+/* Ghost Operator: light / dark themes.
+   Loaded AFTER styles.css. Re-maps the design tokens (so every component follows)
+   and overrides the few hard-coded colors. The theme is set on <html data-theme="light|dark">.
+   Dark = TinyFish console look (zinc-black, orange accent). Light = warm paper, same orange. */
+
+/* ───────── LIGHT ───────── */
+:root, :root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f3ee;  --dot: rgba(24, 24, 27, .06);
+  --surface: #ffffff;  --surface-2: #faf8f4;
+  --line: #e8e3da;  --line-2: #d9d2c5;
+  --ink: #18181b;  --ink-2: #3f3f46;  --muted: #71717a;  --faint: #a1a1aa;
+
+  --brand: #e9733c;  --brand-ink: #b9501f;  --brand-50: #fdf0e8;  --brand-100: #fadcc9;
+  --navy: #18181b;  --navy-2: #27272a;
+  --gold: #f4955f;  --gold-ink: #8f4a1c;  --gold-50: #fdeee2;
+
+  --ok-bd: #bfe2d2;  --bad-bd: #f0c9c1;  --warn-bd: #f1d3b1;  --gold-bd: #f5cfb2;
+  --shadow: 0 1px 2px rgba(24,24,27,.04), 0 10px 28px -16px rgba(24,24,27,.18);
+  --shadow-lg: 0 2px 4px rgba(24,24,27,.05), 0 24px 48px -24px rgba(24,24,27,.35);
+  --glow: rgba(233, 115, 60, .35);
+}
+
+/* ───────── DARK (TinyFish console palette) ───────── */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b0b0d;  --dot: rgba(255, 255, 255, .045);
+  --surface: #18181b;  --surface-2: #1f1f23;
+  --line: #27272a;  --line-2: #34343a;
+  --ink: #fafafa;  --ink-2: #d4d4d8;  --muted: #a1a1aa;  --faint: #71717a;
+
+  --brand: #f4955f;  --brand-ink: #f8ab80;  --brand-50: #311e19;  --brand-100: #5a3322;
+  --navy: #09090b;  --navy-2: #18181b;
+  --gold: #f4955f;  --gold-ink: #f6cd94;  --gold-50: #2b1e16;
+
+  --ok: #5fbf98;   --ok-50: #14261f;
+  --warn: #f0a15b; --warn-50: #2b1e12;
+  --bad: #f0705f;  --bad-50: #2b1613;
+
+  --ok-bd: #25513f;  --bad-bd: #5b2a24;  --warn-bd: #5a3a1c;  --gold-bd: #5a3a22;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px -16px rgba(0,0,0,.6);
+  --shadow-lg: 0 2px 4px rgba(0,0,0,.4), 0 24px 48px -24px rgba(0,0,0,.7);
+  --glow: rgba(244, 149, 95, .3);
+}
+
+/* ───────── both themes: swap hard-coded blues/borders for tokens ───────── */
+a, .btn-link, .pick-label { color: var(--brand-ink); }
+.btn-primary { color: #170b06; box-shadow: 0 6px 16px -8px var(--glow); }
+.btn-primary:hover { color: #170b06; }
+.flag.rec { color: #170b06; }
+.mlnode.on .ic { color: #170b06; box-shadow: 0 6px 16px -8px var(--glow); }
+.switch input:checked + i { background: var(--brand); }
+.viewport .cursor { background: var(--glow); border-color: var(--brand); }
+.btn-gold { color: #170b06; }
+.btn-gold:hover { background: #f8ab80; border-color: #f8ab80; }
+.win.running { border-color: var(--brand-100); }
+.win.done, .st.done, .spec.ok, .flag.deal, .flag.ok, .hst.approved, .trace li.recommended { border-color: var(--ok-bd); }
+.win.failed, .st.failed, .flag.bad, .flag.suspicious, .flag.overpriced, .hst.rejected, .hst.failed { border-color: var(--bad-bd); }
+.spec.warn, .flag.warn, .flag.outlier, .trace li.provisional { border-color: var(--warn-bd); }
+.flag.quote, .hst.awaiting_approval { border-color: var(--gold-bd); }
+.decide { background: rgba(24, 24, 27, .96); }
+.decide.override { background: linear-gradient(100deg, rgba(24,24,27,.97), rgba(39,39,42,.97)); }
+.dlg::backdrop { background: rgba(9, 9, 11, .5); }
+.mono-tile { box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
+
+/* ───────── dark-only fixes for light hard-coded colors ───────── */
+:root[data-theme="dark"] .topbar { background: rgba(11, 11, 13, .86); }
+:root[data-theme="dark"] .logo-mark { border: 1px solid var(--line-2); }
+:root[data-theme="dark"] .field input:focus,
+:root[data-theme="dark"] .cons input:focus,
+:root[data-theme="dark"] .cons select:focus,
+:root[data-theme="dark"] .dlg textarea:focus,
+:root[data-theme="dark"] .sc input:not([type=checkbox]) { background: var(--surface-2); color: var(--ink); }
+:root[data-theme="dark"] .lights i { background: #34343a; }
+:root[data-theme="dark"] .win.running .skeleton .bar,
+:root[data-theme="dark"] .win.running .skeleton .tiles i { background: linear-gradient(90deg, var(--line) 0%, #2e2e34 50%, var(--line) 100%); background-size: 200% 100%; }
+:root[data-theme="dark"] .done-mark { background: rgba(11, 11, 13, .82); }
+:root[data-theme="dark"] .offers tbody tr.row:hover td { background: #1c1c20; }
+:root[data-theme="dark"] .tag.fixture, :root[data-theme="dark"] .flag.fixture { background: #241b33; color: #b9a0f0; border-color: #3a2d55; }
+:root[data-theme="dark"] .lv.elevated { background: #2b1e12; color: #f0a15b; }
+:root[data-theme="dark"] .cc.incomplete, :root[data-theme="dark"] .cc.unknown,
+:root[data-theme="dark"] .cs.unknown, :root[data-theme="dark"] .lv.unknown,
+:root[data-theme="dark"] .fd .sev { background: #26262b; color: var(--muted); }
+:root[data-theme="dark"] .radar .area { fill: rgba(240, 112, 95, .2); }
+:root[data-theme="dark"] .win.done .viewport, :root[data-theme="dark"] .win .viewport { background: var(--surface-2); }
+
+/* ───────── theme toggle (top bar) ───────── */
+.theme-toggle { width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2);
+  display: inline-grid; place-items: center; cursor: pointer; flex: none; transition: border-color .2s, background .2s, transform .15s var(--ease); }
+.theme-toggle:hover { border-color: var(--line-2); transform: translateY(-1px); }
+.theme-toggle svg { width: 17px; height: 17px; }
+.theme-toggle .i-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .i-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .i-moon { display: none; }
+
+/* ───────── HERO: light ───────── */
+:root[data-theme="light"] .console, :root:not([data-theme]) .console {
+  color: var(--ink); border: 1px solid var(--line); border-radius: 18px;
+  box-shadow: 0 20px 44px -30px rgba(24,24,27,.35);
+  background:
+    radial-gradient(rgba(24,24,27,.05) 1px, transparent 1.3px) 0 0 / 16px 16px,
+    linear-gradient(100deg, rgba(255,255,255,0) 40%, rgba(244,149,95,.20) 100%),
+    radial-gradient(50% 60% at 100% 0%, rgba(244,149,95,.16) 0%, transparent 70%),
+    #fff;
+}
+:root[data-theme="light"] .console .eyebrow { background: #fde9dc; color: #b9501f; }
+:root[data-theme="light"] .console h1 { color: var(--ink); }
+:root[data-theme="light"] .console h1 em { color: #d9602a; }
+:root[data-theme="light"] .console .lede { color: var(--ink-2); }
+:root[data-theme="light"] .console .composer { background: #fff; border: 1px solid var(--line-2); box-shadow: 0 14px 34px -26px rgba(24,24,27,.4); }
+:root[data-theme="light"] .console .composer:focus-within { border-color: #f3c4a3; box-shadow: 0 0 0 3px rgba(244,149,95,.28), 0 14px 34px -22px rgba(244,149,95,.5); }
+:root[data-theme="light"] .console .chip:hover { background: #fdf0e8; border-color: #f3c4a3; color: #b9501f; }
+:root[data-theme="light"] .console .pipeline {
+  background: radial-gradient(rgba(24,24,27,.04) 1px, transparent 1.3px) 0 0 / 16px 16px, var(--surface-2);
+  border: 1px solid var(--line);
+}
+:root[data-theme="light"] .console .pipeline h3 { color: var(--muted); }
+:root[data-theme="light"] .console .pipeline li { border-top-color: var(--line); }
+:root[data-theme="light"] .console .pipeline .pd { background: #fff; border-color: var(--line-2); color: var(--muted); }
+:root[data-theme="light"] .console .pipeline .pt { color: var(--ink); }
+:root[data-theme="light"] .console .pipeline .ps { color: var(--ink-2); }
+:root[data-theme="light"] .console .pipeline .pa { background: transparent; border: 1px solid var(--line-2); color: var(--ink-2); }
+:root[data-theme="light"] .console .pipeline li:nth-child(n+2):nth-child(-n+4) .pa { background: #fdebdd; border-color: #f3c4a3; color: #b9501f; }
+:root[data-theme="light"] .console .pipeline li.done .pd { background: var(--ok); border-color: var(--ok); color: #fff; }
+
+/* ───────── HERO: dark (TinyFish console look) ───────── */
+:root[data-theme="dark"] .console {
+  color: #fafafa; border: 1px solid var(--line); border-radius: 18px;
+  box-shadow: 0 24px 48px -28px rgba(0,0,0,.6);
+  background:
+    radial-gradient(rgba(255,255,255,.05) 1px, transparent 1.3px) 0 0 / 16px 16px,
+    linear-gradient(100deg, rgba(12,12,12,0) 35%, rgba(94,49,29,.55) 100%),
+    radial-gradient(50% 60% at 100% 0%, rgba(244,149,95,.14) 0%, transparent 70%),
+    #111113;
+}
+:root[data-theme="dark"] .console .eyebrow { background: #412217; color: var(--brand); }
+:root[data-theme="dark"] .console h1 em { color: var(--brand); }
+:root[data-theme="dark"] .console .lede { color: #a1a1aa; }
+:root[data-theme="dark"] .console .composer { background: #18181b; color: #fafafa; border: 1px solid var(--line-2); box-shadow: 0 18px 40px -26px rgba(0,0,0,.8); }
+:root[data-theme="dark"] .console .composer:focus-within { border-color: #874229; box-shadow: 0 0 0 3px rgba(244,149,95,.18), 0 18px 44px -20px rgba(244,149,95,.35); }
+:root[data-theme="dark"] .console .composer textarea { color: #fafafa; }
+:root[data-theme="dark"] .console .composer-bar { border-top-color: var(--line); }
+:root[data-theme="dark"] .console .chip { background: #1f1f23; border-color: var(--line-2); color: #a1a1aa; }
+:root[data-theme="dark"] .console .chip:hover { background: #311e19; border-color: #874229; color: #f6cd94; }
+:root[data-theme="dark"] .console .pipeline {
+  background: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1.3px) 0 0 / 16px 16px, #18181b;
+  border: 1px solid var(--line);
+}
+:root[data-theme="dark"] .console .pipeline h3 { color: #71717a; }
+:root[data-theme="dark"] .console .pipeline li { border-top-color: var(--line); }
+:root[data-theme="dark"] .console .pipeline .pd { background: #1f1f23; border-color: var(--line-2); color: #b5b5bb; }
+:root[data-theme="dark"] .console .pipeline .pt { color: #fafafa; }
+:root[data-theme="dark"] .console .pipeline .ps { color: #a1a1aa; }
+:root[data-theme="dark"] .console .pipeline .pa { background: transparent; border: 1px solid var(--line-2); color: #a1a1aa; }
+:root[data-theme="dark"] .console .pipeline li:nth-child(n+2):nth-child(-n+4) .pa { background: #311e19; border-color: #874229; color: var(--brand); }
+:root[data-theme="dark"] .console .pipeline li.done .pd { background: #618b7e; border-color: #618b7e; color: #0d1513; }
+
+/* ───────── HERO: shared (both themes) ───────── */
+.console .composer { border-radius: 14px; }
+.console .chip { border-radius: 999px; }
+.console .btn-gold { background: #f4955f; border-color: #f4955f; color: #170b06; box-shadow: none; border-radius: 10px; }
+.console .btn-gold:hover { background: #f8ab80; border-color: #f8ab80; }
+.console .eyebrow { display: inline-block; padding: 6px 11px; border-radius: 999px; letter-spacing: .14em; }
+.console .pipeline { border-radius: 14px; backdrop-filter: none; }
+.console .pipeline .pd { border-radius: 9px; }
+.console .pipeline .pa { border-radius: 999px; padding: 5px 9px; font-family: var(--mono); }
+.console .pipeline li.active .pd { background: #f4955f; border-color: #f4955f; color: #170b06; box-shadow: 0 0 0 4px rgba(244,149,95,.22); }

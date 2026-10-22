@@ -1,0 +1,75 @@
+{
+ "_source": "Real TinyFish run b2c2d92e-b472-4bb5-9202-46808579748c on 2026-10-16 (20 steps, 3m21s)",
+ "duration_s": 201,
+ "steps": [
+  "Opening lenovo.com business laptops page",
+  "Declining non-essential cookies",
+  "Scanning ThinkPad and ThinkBook listings",
+  "Opening ThinkBook 14x (Ultra 7) to read specs",
+  "Reading warranty: One Year Onsite",
+  "Reading ThinkBook 14x (Ultra 5) configuration",
+  "Opening ThinkPad T14 Gen 7",
+  "Opening ThinkPad E14 Gen 7",
+  "Compiling extracted products as JSON"
+ ],
+ "result": {
+  "products": [
+   {
+    "cpu": "Intel® Core™ Ultra 7 256V Processor",
+    "ram": "16 GB LPDDR5X-8533MT/s (Memory on Package)",
+    "seller": "Lenovo US",
+    "storage": "512 GB SSD M.2 2242 PCIe Gen4 QLC",
+    "warranty": "One Year Onsite",
+    "condition": "New",
+    "price_usd": 949,
+    "display_size": "14\"",
+    "product_name": "ThinkBook 14x Intel (14″) Laptop - Luna Grey",
+    "stock_status": "Available",
+    "operating_system": "Windows 11 Pro 64",
+    "product_page_url": "https://www.lenovo.com/us/en/p/laptops/thinkbook/thinkbook-x/thinkbook-14x-14-inch-intel/22bg007kus"
+   },
+   {
+    "cpu": "Intel® Core™ Ultra 5 226V Processor",
+    "ram": "16 GB LPDDR5X-8533MT/s (Memory on Package)",
+    "seller": "Lenovo US",
+    "storage": "512 GB SSD M.2 2242 PCIe Gen4 QLC",
+    "warranty": "One Year Onsite",
+    "condition": "New",
+    "price_usd": 849,
+    "display_size": "14\"",
+    "product_name": "ThinkBook 14x Intel (14″) Laptop - Luna Grey",
+    "stock_status": "Available",
+    "operating_system": "Windows 11 Pro 64",
+    "product_page_url": "https://www.lenovo.com/us/en/p/laptops/thinkbook/thinkbook-x/thinkbook-14x-14-inch-intel/22bg007lus"
+   },
+   {
+    "cpu": "Intel® Core™ Ultra 7 365 vPro® Processor",
+    "ram": "32 GB LPDDR5X-7467MT/s (CAMM2)",
+    "seller": "Lenovo US",
+    "storage": "1 TB SSD M.2 2280 PCIe Gen4 TLC Opal",
+    "warranty": "One Year Onsite",
+    "condition": "New",
+    "price_usd": 3199,
+    "display_size": "14\"",
+    "product_name": "ThinkPad T14 Gen 7 Intel (14″)",
+    "stock_status": "Available",
+    "operating_system": "Windows 11 Pro 64",
+    "product_page_url": "https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpadt/lenovo-thinkpad-t14-gen-7-14-inch-intel-laptop/21wn00buus"
+   },
+   {
+    "cpu": "Intel® Core™ 7 240H Processor",
+    "ram": "16 GB DDR5-5200MT/s (SODIMM)",
+    "seller": "Lenovo US",
+    "storage": "512 GB SSD M.2 2242 PCIe Gen4 TLC Opal",
+    "warranty": "One Year Onsite",
+    "condition": "New",
+    "price_usd": 1259,
+    "display_size": "14\"",
+    "product_name": "ThinkPad E14 Gen 7 Intel (14″)",
+    "stock_status": "Available",
+    "operating_system": "Windows 11 Pro 64",
+    "product_page_url": "https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpade/lenovo-thinkpad-e14-gen-7-14-inch-intel/21t9004eus"
+   }
+  ]
+ }
+}

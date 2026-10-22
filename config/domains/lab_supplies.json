@@ -1,0 +1,27 @@
+{
+  "label": "Lab supplies: nitrile exam gloves",
+  "keywords": ["glove", "nitrile", "lab", "pipette", "reagent", "consumable", "supplies"],
+  "unit": "case",
+  "fields": ["product_name", "sku", "price_usd", "count_per_case", "thickness_mil", "powder_free", "certifications", "warranty", "seller", "condition", "stock_status", "product_page_url"],
+  "attributes": {
+    "count_per_case": {"from": "count_per_case", "type": "number"},
+    "thickness_mil":  {"from": "thickness_mil", "type": "number"},
+    "powder_free":    {"from": "powder_free", "type": "text"},
+    "certifications": {"from": "certifications", "type": "text"}
+  },
+  "price_features": ["count_per_case", "thickness_mil"],
+  "default_constraints": [
+    {"attribute": "powder_free", "op": "contains", "value": "yes", "hard": true, "weight": 2},
+    {"attribute": "certifications", "op": "contains", "value": "D6319", "hard": true, "weight": 2},
+    {"attribute": "thickness_mil", "op": ">=", "value": 4, "hard": false, "weight": 1.5},
+    {"attribute": "count_per_case", "op": ">=", "value": 1000, "hard": false, "weight": 1}
+  ],
+  "risk_model": {"annual_failure_rate": 0.02, "repair_cost_ratio": 1.0, "lifetime_years": 1, "downtime": false},
+  "goal_template": "Find {item} matching: {criteria}. For up to {n} products listed, extract JSON {{\"products\":[{{\"product_name\",\"sku\",\"price_usd\",\"count_per_case\",\"thickness_mil\",\"powder_free\",\"certifications\",\"warranty\",\"seller\",\"condition\",\"stock_status\",\"product_page_url\"}}]}}. price_usd = price per case as a number. warranty = return policy / shelf-life guarantee as shown. {hint} Do not add anything to cart, do not sign in, decline non-essential cookies.",
+  "vendors": [
+    {"key": "fisher", "name": "Fisher Scientific", "url": "https://www.fishersci.com/us/en/browse/90161010/exam-gloves", "hint": ""},
+    {"key": "vwr",    "name": "VWR / Avantor",     "url": "https://us.vwr.com/store/category/gloves/", "hint": ""},
+    {"key": "uline",  "name": "Uline",             "url": "https://www.uline.com/Cls_06/Disposable-Gloves", "hint": ""},
+    {"key": "amazon", "name": "Amazon Business",   "url": "https://www.amazon.com/s?k=nitrile+exam+gloves+case+1000", "hint": "Include the marketplace seller name."}
+  ]
+}

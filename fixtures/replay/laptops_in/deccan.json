@@ -1,0 +1,30 @@
+{
+  "_source": "SYNTHETIC TEST FIXTURE: fictional supplier and page, hand-written on 2026-10-20 to exercise Ghost Operator's adversarial checks (see fixtures/replay/laptops_in/README.md). Not live data and not a real vendor.",
+  "duration_s": 16,
+  "steps": [
+    "Opened the supplier's laptop listing",
+    "Filtered to 16 GB RAM / Windows 11 Pro",
+    "Opened product page",
+    "Read price, configuration and warranty",
+    "Extracted structured offer"
+  ],
+  "result": {
+    "products": [
+      {
+        "cpu": "Intel Core Ultra 5 225U",
+        "display_size": "14\"",
+        "operating_system": "Windows 11 Pro",
+        "condition": "New",
+        "product_name": "Deccan Edge D14 Laptop (16GB)",
+        "sku": "DDM-D14",
+        "price_inr": 49999,
+        "ram": "16 GB DDR5",
+        "storage": "512 GB SSD",
+        "warranty": "3 Year Onsite",
+        "seller": "Deccan Digital Mart",
+        "stock_status": "In stock",
+        "product_page_url": "https://deccan-digital.test/deals/d14"
+      }
+    ]
+  }
+}

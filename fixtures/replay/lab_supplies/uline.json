@@ -1,0 +1,48 @@
+{
+ "_source": "Real TinyFish run c440a869-23b4-48d8-b7bf-8a21eba3ec69 on 2026-10-16 (101 steps, 11m48s)",
+ "duration_s": 708,
+ "steps": [
+  "Opening uline.com disposable gloves category",
+  "Declining non-essential cookies",
+  "Filtering to nitrile, exam grade",
+  "Opening Exam Grade Nitrile Gloves (S-12549)",
+  "Reading certifications: ASTM D6319, D6978",
+  "Selecting size Large to read price per case",
+  "Opening Black Exam Grade Nitrile Gloves (S-21081)",
+  "Reading thickness and case count",
+  "Checking remaining listings for exam-grade certification",
+  "Compiling extracted products as JSON"
+ ],
+ "result": {
+  "products": [
+   {
+    "sku": "S-12549L",
+    "seller": "Uline",
+    "warranty": null,
+    "condition": "New",
+    "price_usd": 150,
+    "powder_free": true,
+    "product_name": "Uline Exam Grade Nitrile Gloves - Powder-Free, Large",
+    "stock_status": "In Stock",
+    "thickness_mil": 5.1,
+    "certifications": "ASTM D6319, ASTM D6978",
+    "count_per_case": 1000,
+    "product_page_url": "https://www.uline.com/Product/Detail/S-12549L/Nitrile-Gloves/Uline-Exam-Grade-Nitrile-Gloves-Powder-Free-Large"
+   },
+   {
+    "sku": "S-21081-L",
+    "seller": "Uline",
+    "warranty": null,
+    "condition": "New",
+    "price_usd": 160,
+    "powder_free": true,
+    "product_name": "Uline Black Exam Grade Nitrile Gloves - Powder-Free, Large",
+    "stock_status": "In Stock",
+    "thickness_mil": 4.3,
+    "certifications": "ASTM D6319",
+    "count_per_case": 1000,
+    "product_page_url": "https://www.uline.com/Product/Detail/S-21081-L/Nitrile-Gloves/Uline-Black-Exam-Grade-Nitrile-Gloves-Powder-Free-Large"
+   }
+  ]
+ }
+}

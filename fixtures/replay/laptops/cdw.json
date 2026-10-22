@@ -1,0 +1,80 @@
+{
+ "_source": "Real TinyFish run 520d0233-216d-48d8-9b8b-21bd3bbc5866 on 2026-10-16 (24 steps, 4m46s)",
+ "duration_s": 286,
+ "steps": [
+  "Opening cdw.com laptops category",
+  "Declining non-essential cookies",
+  "Applying memory filter 16GB",
+  "Applying OS filter Windows 11 Pro",
+  "Reading ThinkPad E14 Gen 7 listing",
+  "Opening product page to read warranty",
+  "Reading ThinkPad T14s Gen 6 listing",
+  "Reading Dell Pro 16 listing",
+  "Reading Dell Pro 14 Plus listing and stock status",
+  "Compiling extracted products as JSON"
+ ],
+ "result": {
+  "products": [
+   {
+    "cpu": "Intel Core i5",
+    "ram": "16 GB",
+    "sku": "21T9002FUS",
+    "seller": "CDW",
+    "storage": "256GB SSD",
+    "warranty": "1 Year Limited warranty - pick-up and return",
+    "condition": "New",
+    "price_usd": 1302.99,
+    "display_size": "14 inch",
+    "product_name": "Lenovo ThinkPad E14 Gen 7 Laptop - Core 5 - 256GB SSD - 65W - Win 11 Pro",
+    "stock_status": "In Stock",
+    "operating_system": "Windows 11 Pro",
+    "product_page_url": "https://www.cdw.com/product/lenovo-thinkpad-e14-gen-7-laptop-core-5-256gb-ssd-65w-win-11-pro/8425666"
+   },
+   {
+    "cpu": "Snapdragon X Plus X1P-42-100",
+    "ram": "16GB",
+    "sku": "21N1002DUS",
+    "seller": "CDW",
+    "storage": "512GB",
+    "warranty": "1 Year Limited warranty - pick-up and return",
+    "condition": "New",
+    "price_usd": 1379.99,
+    "display_size": "14 inch",
+    "product_name": "Lenovo ThinkPad T14s Gen 6 X Plus X1P-42-100 16GB RAM 512GB Windows 11 Pro Laptop - Black",
+    "stock_status": "In Stock",
+    "operating_system": "Windows 11 Pro",
+    "product_page_url": "https://www.cdw.com/product/lenovo-thinkpad-t14s-gen-6-x-plus-x1p-42-100-16gb-ram-512gb-windows-11-pro/8077855"
+   },
+   {
+    "cpu": "Intel Core Ultra 7-255U",
+    "ram": "16 GB",
+    "sku": "H60MC",
+    "seller": "CDW",
+    "storage": "512 GB SSD",
+    "warranty": "1 Year 1Y Basic Onsite Service after remote diagnosis with Hardware-Only Support-Disti SnS",
+    "condition": "New",
+    "price_usd": 2149.99,
+    "display_size": "16 inch",
+    "product_name": "Dell Pro 16 - Intel Core Ultra 7-255U - 512GB SSD - 16GB - Windows 11 Pro",
+    "stock_status": "In Stock",
+    "operating_system": "Windows 11 Pro",
+    "product_page_url": "https://www.cdw.com/product/dell-pro-16-intel-core-ultra-7-255u-512gb-ssd-16gb-windows-11-pro/8375148"
+   },
+   {
+    "cpu": "AMD Ryzen 5 Pro 230",
+    "ram": "16 GB",
+    "sku": "92XY7",
+    "seller": "CDW",
+    "storage": "512 GB SSD",
+    "warranty": "1 Year 1 Year Basic Onsite Service after remote diagnosis with Hardware-Only Support - Disti SnS",
+    "condition": "New",
+    "price_usd": 1367.99,
+    "display_size": "14 inch",
+    "product_name": "Dell Pro 14 Plus Laptop - 14\" - AMD Ryzen 5 Pro 230 - 16 GB RAM - 512 GB SSD - Windows 11 Pro",
+    "stock_status": "Item Backordered",
+    "operating_system": "Windows 11 Pro",
+    "product_page_url": "https://www.cdw.com/product/dell-pro-14-plus-laptop-14-amd-ryzen-5-pro-230-16-gb-ram-512-gb-ss/8309987"
+   }
+  ]
+ }
+}

@@ -1,0 +1,743 @@
+{
+ "run_at": "2026-10-20T12:52:16+00:00",
+ "python": "3.13.9",
+ "caveat": "Regression cases written by the Ghost Operator authors, not an independent benchmark. Real-recording labels come from the vendor page text (fixtures/replay/*/_fetch.json, 2026-10-16) checked by hand; synthetic pages are fictional and labelled as such.",
+ "categories": {
+  "requirement_matching": {
+   "metric": {
+    "field_accuracy": 1.0,
+    "cases_passed": 7,
+    "cases": 7
+   },
+   "planner": "rule-based fallback (no Claude key in eval)",
+   "rows": [
+    {
+     "objective": "I need to purchase 50 laptops for my new office. 16GB RAM, Windows 11 Pro, ideally 3-year ",
+     "pass": true,
+     "misses": []
+    },
+    {
+     "objective": "Buy 25 laptops for our Bengaluru office, 16GB RAM, Windows 11 Pro, 3 year onsite warranty,",
+     "pass": true,
+     "misses": []
+    },
+    {
+     "objective": "Our lab needs 40 cases of powder-free nitrile exam gloves (ASTM D6319), at least 4 mil thi",
+     "pass": true,
+     "misses": []
+    },
+    {
+     "objective": "Buy 12 developer laptops with 32GB RAM and 1TB SSD, Windows 11 Pro, onsite warranty requir",
+     "pass": true,
+     "misses": []
+    },
+    {
+     "objective": "We need 8 laptops for the Hyderabad team, 16 GB RAM, total budget 6.5 lakh, needed in 2 we",
+     "pass": true,
+     "misses": []
+    },
+    {
+     "objective": "Procure 200 laptops for a school in Delhi, budget 1.2 crore, 8GB RAM is fine",
+     "pass": true,
+     "misses": []
+    },
+    {
+     "objective": "Need 100 boxes of nitrile gloves within 5 business days, max $2,500",
+     "pass": true,
+     "misses": []
+    }
+   ]
+  },
+  "claim_verification": {
+   "metric": {
+    "accuracy": 1.0,
+    "cases": 17,
+    "real_cases": 13,
+    "verified_when_not_supported": 0
+   },
+   "confusion": {
+    "contradicted": {
+     "contradicted": 6
+    },
+    "verified": {
+     "verified": 9
+    },
+    "inferred": {
+     "inferred": 1
+    },
+    "unknown": {
+     "unknown": 1
+    }
+   },
+   "rows": [
+    {
+     "case": "Dell 1255 · ram_gb",
+     "source": "real",
+     "expected": "contradicted",
+     "got": "contradicted",
+     "pass": true,
+     "why": "page: $1,255 config has 8 GB DDR5"
+    },
+    {
+     "case": "Dell 1255 · price",
+     "source": "real",
+     "expected": "verified",
+     "got": "verified",
+     "pass": true,
+     "why": ""
+    },
+    {
+     "case": "Dell 1826 · price",
+     "source": "real",
+     "expected": "contradicted",
+     "got": "contradicted",
+     "pass": true,
+     "why": "page now shows $1,836 / $1,868"
+    },
+    {
+     "case": "Dell 1826 · stock",
+     "source": "real",
+     "expected": "contradicted",
+     "got": "contradicted",
+     "pass": true,
+     "why": "page says Sold Out"
+    },
+    {
+     "case": "Lenovo 949 · quantity",
+     "source": "real",
+     "expected": "verified",
+     "got": "verified",
+     "pass": true,
+     "why": "page: Promo price: Max 5 units per order"
+    },
+    {
+     "case": "Lenovo 849 · quantity",
+     "source": "real",
+     "expected": "inferred",
+     "got": "inferred",
+     "pass": true,
+     "why": "page didn't render; same-model sibling is capped"
+    },
+    {
+     "case": "Lenovo 849 · price",
+     "source": "real",
+     "expected": "unknown",
+     "got": "unknown",
+     "pass": true,
+     "why": "page text has no prices"
+    },
+    {
+     "case": "CDW 1367.99 · stock",
+     "source": "real",
+     "expected": "verified",
+     "got": "verified",
+     "pass": true,
+     "why": "page: Backordered Item (agent also said backordered)"
+    },
+    {
+     "case": "Office Depot 1405.86 · price",
+     "source": "real",
+     "expected": "verified",
+     "got": "verified",
+     "pass": true,
+     "why": ""
+    },
+    {
+     "case": "Office Depot 1405.86 · ram_gb",
+     "source": "real",
+     "expected": "verified",
+     "got": "verified",
+     "pass": true,
+     "why": ""
+    },
+    {
+     "case": "Lenovo 949 · shipping",
+     "source": "real",
+     "expected": "verified",
+     "got": "verified",
+     "pass": true,
+     "why": "page: Free expedited delivery"
+    },
+    {
+     "case": "Uline 150 · price",
+     "source": "real",
+     "expected": "contradicted",
+     "got": "contradicted",
+     "pass": true,
+     "why": "page prices a carton of 100 at $17/$15"
+    },
+    {
+     "case": "Uline 150 · count_per_case",
+     "source": "real",
+     "expected": "contradicted",
+     "got": "contradicted",
+     "pass": true,
+     "why": ""
+    },
+    {
+     "case": "synthetic · shipping · the page's statement is a conditional offer; recor",
+     "source": "synthetic",
+     "expected": "verified",
+     "got": "verified",
+     "pass": true,
+     "why": "the page's statement is a conditional offer; recorded as 'free on orders over 1000' (whether this order qualifies is tested in landed_cost)"
+    },
+    {
+     "case": "synthetic · warranty · colon-style warranty line",
+     "source": "synthetic",
+     "expected": "contradicted",
+     "got": "contradicted",
+     "pass": true,
+     "why": "colon-style warranty line"
+    },
+    {
+     "case": "synthetic · tax · ",
+     "source": "synthetic",
+     "expected": "verified",
+     "got": "verified",
+     "pass": true,
+     "why": ""
+    },
+    {
+     "case": "synthetic · lead_time · ",
+     "source": "synthetic",
+     "expected": "verified",
+     "got": "verified",
+     "pass": true,
+     "why": ""
+    }
+   ]
+  },
+  "misleading_offers": {
+   "metric": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "cases_exact": 20,
+    "cases": 20,
+    "controls_clean": 5,
+    "controls": 5
+   },
+   "per_code": {
+    "SPEC_CONTRADICTED": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0
+    },
+    "UNIT_BASIS_MISMATCH": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "BULK_CAP": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "MOQ_ABOVE_QUANTITY": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "TAX_EXCLUSIVE": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0
+    },
+    "HIDDEN_CHARGE": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0
+    },
+    "WARRANTY_CONFLICT": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "STOCK_BELOW_QUANTITY": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "DELIVERY_INFEASIBLE": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "OUT_OF_STOCK": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "PRICE_NOT_ON_PAGE": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "PAGE_INJECTION": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0
+    },
+    "TAX_CONFLICT": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "rows": [
+    {
+     "case": "8 GB at the advertised 16 GB price",
+     "expected": [
+      "SPEC_CONTRADICTED"
+     ],
+     "got": [
+      "SPEC_CONTRADICTED"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "storage downgrade",
+     "expected": [
+      "SPEC_CONTRADICTED"
+     ],
+     "got": [
+      "SPEC_CONTRADICTED"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "per-pack price read as per-case",
+     "expected": [
+      "UNIT_BASIS_MISMATCH"
+     ],
+     "got": [
+      "UNIT_BASIS_MISMATCH"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "promo limited per customer",
+     "expected": [
+      "BULK_CAP"
+     ],
+     "got": [
+      "BULK_CAP"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "MOQ above quantity",
+     "expected": [
+      "MOQ_ABOVE_QUANTITY",
+      "TAX_EXCLUSIVE"
+     ],
+     "got": [
+      "MOQ_ABOVE_QUANTITY",
+      "TAX_EXCLUSIVE"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "shipping charged per order",
+     "expected": [
+      "HIDDEN_CHARGE"
+     ],
+     "got": [
+      "HIDDEN_CHARGE"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "processing fee",
+     "expected": [
+      "HIDDEN_CHARGE",
+      "TAX_EXCLUSIVE"
+     ],
+     "got": [
+      "HIDDEN_CHARGE",
+      "TAX_EXCLUSIVE"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "warranty contradicted",
+     "expected": [
+      "WARRANTY_CONFLICT"
+     ],
+     "got": [
+      "WARRANTY_CONFLICT"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "stock below quantity",
+     "expected": [
+      "STOCK_BELOW_QUANTITY"
+     ],
+     "got": [
+      "STOCK_BELOW_QUANTITY"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "lead time beyond deadline",
+     "expected": [
+      "DELIVERY_INFEASIBLE"
+     ],
+     "got": [
+      "DELIVERY_INFEASIBLE"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "sold out",
+     "expected": [
+      "OUT_OF_STOCK"
+     ],
+     "got": [
+      "OUT_OF_STOCK"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "price not on page",
+     "expected": [
+      "PRICE_NOT_ON_PAGE"
+     ],
+     "got": [
+      "PRICE_NOT_ON_PAGE"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "injection: ignore instructions",
+     "expected": [
+      "PAGE_INJECTION"
+     ],
+     "got": [
+      "PAGE_INJECTION"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "injection: phrased for automated buyers",
+     "expected": [
+      "PAGE_INJECTION"
+     ],
+     "got": [
+      "PAGE_INJECTION"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "tax both included and extra",
+     "expected": [
+      "TAX_CONFLICT"
+     ],
+     "got": [
+      "TAX_CONFLICT"
+     ],
+     "pass": true,
+     "control": false
+    },
+    {
+     "case": "CONTROL honest INR listing",
+     "expected": [],
+     "got": [],
+     "pass": true,
+     "control": true
+    },
+    {
+     "case": "CONTROL honest USD listing",
+     "expected": [],
+     "got": [],
+     "pass": true,
+     "control": true
+    },
+    {
+     "case": "CONTROL product copy mentioning AI",
+     "expected": [],
+     "got": [],
+     "pass": true,
+     "control": true
+    },
+    {
+     "case": "CONTROL power delivery is not a lead time",
+     "expected": [],
+     "got": [],
+     "pass": true,
+     "control": true
+    },
+    {
+     "case": "CONTROL quantity within cap",
+     "expected": [],
+     "got": [],
+     "pass": true,
+     "control": true
+    }
+   ]
+  },
+  "landed_cost": {
+   "metric": {
+    "exact_to_the_cent": 10,
+    "cases": 10,
+    "max_abs_error": 0.0
+   },
+   "rows": [
+    {
+     "case": "INR inclusive",
+     "expected": 1597500.0,
+     "got": 1597500.0,
+     "confidence": "confirmed",
+     "unknowns": [],
+     "pass": true
+    },
+    {
+     "case": "INR GST extra + delivery + fee",
+     "expected": 1657900.0,
+     "got": 1657900.0,
+     "confidence": "estimated",
+     "unknowns": [],
+     "pass": true
+    },
+    {
+     "case": "INR cap with list price",
+     "expected": 1640975.0,
+     "got": 1640975.0,
+     "confidence": "confirmed",
+     "unknowns": [],
+     "pass": true
+    },
+    {
+     "case": "INR discount + GST",
+     "expected": 1563795.0,
+     "got": 1563795.0,
+     "confidence": "estimated",
+     "unknowns": [],
+     "pass": true
+    },
+    {
+     "case": "INR discount not reached",
+     "expected": 658440.0,
+     "got": 658440.0,
+     "confidence": "estimated",
+     "unknowns": [],
+     "pass": true
+    },
+    {
+     "case": "USD buyer tax rate, per-order shipping",
+     "expected": 12923.61,
+     "got": 12923.61,
+     "confidence": "estimated",
+     "unknowns": [],
+     "pass": true
+    },
+    {
+     "case": "USD unknown tax",
+     "expected": 64950.0,
+     "got": 64950.0,
+     "confidence": "incomplete",
+     "unknowns": [
+      "Sales tax"
+     ],
+     "pass": true
+    },
+    {
+     "case": "USD cents rounding",
+     "expected": 7247.45,
+     "got": 7247.45,
+     "confidence": "estimated",
+     "unknowns": [],
+     "pass": true
+    },
+    {
+     "case": "conditional free shipping, below threshold",
+     "expected": 899.0,
+     "got": 899.0,
+     "confidence": "incomplete",
+     "unknowns": [
+      "Delivery"
+     ],
+     "pass": true
+    },
+    {
+     "case": "conditional free shipping, above threshold",
+     "expected": 1798.0,
+     "got": 1798.0,
+     "confidence": "estimated",
+     "unknowns": [],
+     "pass": true
+    }
+   ]
+  },
+  "ranking_changes": {
+   "metric": {
+    "cases_passed": 7,
+    "cases": 7
+   },
+   "rows": [
+    {
+     "mission": "india",
+     "scenario": {},
+     "expected": "Sahyadri",
+     "got": "Sahyadri Office Tech (fixture)",
+     "changed": false,
+     "explanation": [
+      "Recommendation unchanged: Sahyadri Office Tech (fixture) Sahyadri WorkMate S14 Laptop still clears every rule"
+     ],
+     "pass": true
+    },
+    {
+     "mission": "india",
+     "scenario": {
+      "deadline_days": 30
+     },
+     "expected": "Ganga",
+     "got": "Ganga Enterprise Supply (fixture)",
+     "changed": true,
+     "explanation": [
+      "Ganga Enterprise Supply (fixture) Ganga Corporate G14 Laptop became eligible: it no longer fails delivery: Page states dispatch in 21–28 days; deadline is 10 days.",
+      "Under this scenario Ganga Enterprise Supply (fixture) leads on lifetime cost (+4.2) and price sanity (+4.0) over Sahyadri Office Tech (fixture)"
+     ],
+     "pass": true
+    },
+    {
+     "mission": "india",
+     "scenario": {
+      "budget_total": 1500000
+     },
+     "expected": null,
+     "got": null,
+     "changed": true,
+     "explanation": [
+      "Sahyadri Office Tech (fixture) Sahyadri WorkMate S14 Laptop is no longer eligible: landed total ₹15,97,500 > budget ₹15,00,000",
+      "No offer is eligible under this scenario"
+     ],
+     "pass": true
+    },
+    {
+     "mission": "india",
+     "scenario": {
+      "quantity": 2
+     },
+     "expected": "Deccan",
+     "got": "Deccan Digital Mart (fixture)",
+     "changed": true,
+     "explanation": [
+      "Deccan Digital Mart (fixture) Deccan Edge D14 Laptop (16GB) is no longer blocked (promo price capped below your quantity)",
+      "Under this scenario Deccan Digital Mart (fixture) leads on lifetime cost (+18.7), trails on source trust (-4.2) over Sahyadri Office Tech (fixture)"
+     ],
+     "pass": true
+    },
+    {
+     "mission": "india",
+     "scenario": {
+      "deadline_days": 30,
+      "budget_total": 1580000
+     },
+     "expected": "Ganga",
+     "got": "Ganga Enterprise Supply (fixture)",
+     "changed": true,
+     "explanation": [
+      "Sahyadri Office Tech (fixture) Sahyadri WorkMate S14 Laptop is no longer eligible: landed total ₹15,97,500 > budget ₹15,80,000",
+      "Ganga Enterprise Supply (fixture) Ganga Corporate G14 Laptop became eligible: it no longer fails delivery: Page states dispatch in 21–28 days; deadline is 10 days."
+     ],
+     "pass": true
+    },
+    {
+     "mission": "laptops",
+     "scenario": {},
+     "expected": "CDW",
+     "got": "CDW",
+     "changed": false,
+     "explanation": [
+      "Recommendation unchanged: CDW Lenovo ThinkPad E14 Gen 7 Laptop - Core 5 - 256GB  still clears every rule"
+     ],
+     "pass": true
+    },
+    {
+     "mission": "laptops",
+     "scenario": {
+      "quantity": 5
+     },
+     "expected": "Lenovo",
+     "got": "Lenovo",
+     "changed": true,
+     "explanation": [
+      "Lenovo ThinkBook 14x Intel (14″) Laptop - Luna Grey is no longer blocked (promo price capped below your quantity)",
+      "Under this scenario Lenovo leads on requirement fit (+6.5) and lifetime cost (+5.1), trails on source trust (-3.2) over CDW"
+     ],
+     "pass": true
+    }
+   ]
+  },
+  "end_to_end": {
+   "metric": {
+    "completed": 3,
+    "missions": 3
+   },
+   "rows": [
+    {
+     "mission": "india",
+     "seconds": 2.03,
+     "offers": 6,
+     "recommended": "Sahyadri Office Tech (fixture) · Sahyadri WorkMate S14 Laptop",
+     "provisional": false,
+     "checks": {
+      "completed": true,
+      "has_recommendation": true,
+      "po_stamped": true,
+      "audit_chain_valid": true,
+      "every_offer_has_claims": true
+     },
+     "pass": true
+    },
+    {
+     "mission": "laptops",
+     "seconds": 2.24,
+     "offers": 20,
+     "recommended": "CDW · Lenovo ThinkPad E14 Gen 7 Laptop - Core 5 - 256GB ",
+     "provisional": false,
+     "checks": {
+      "completed": true,
+      "has_recommendation": true,
+      "po_stamped": true,
+      "audit_chain_valid": true,
+      "every_offer_has_claims": true
+     },
+     "pass": true
+    },
+    {
+     "mission": "gloves",
+     "seconds": 1.06,
+     "offers": 6,
+     "recommended": "eagleprotect.com · Sensitive 4mil Nitrile Exam Gloves",
+     "provisional": true,
+     "checks": {
+      "completed": true,
+      "has_recommendation": true,
+      "po_stamped": true,
+      "audit_chain_valid": true,
+      "every_offer_has_claims": true
+     },
+     "pass": true
+    }
+   ]
+  }
+ },
+ "seconds": 5.5
+}

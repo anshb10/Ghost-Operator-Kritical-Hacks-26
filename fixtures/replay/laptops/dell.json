@@ -1,0 +1,16 @@
+{
+  "_source": "Real TinyFish run ee12253c-12ca-41bc-ac5f-a376387ad740 on 2026-10-16 (28 steps, 4m21s)",
+  "duration_s": 261,
+  "steps": [
+    "Opening dell.com business laptops listing",
+    "Dismissing cookie banner (declining non-essential)",
+    "Filtering by memory: 16GB and above",
+    "Reading product tiles for Dell Pro 16",
+    "Opening Dell Pro 16 configurator to read CPU/storage",
+    "Reading warranty line in tech specs",
+    "Returning to listing, reading Dell Pro 16 Plus",
+    "Reading AMD variant of Dell Pro 16",
+    "Compiling extracted products as JSON"
+  ],
+  "result": {"products":[{"cpu":"Intel Core 5 120U, 10 cores","ram":"16 GB DDR5","storage":"256 GB SSD TLC","warranty":"Basic Hardware Service with Mail-In (1 year limited warranty)","price_usd":1690,"display_size":"16\"","product_name":"Dell Pro 16 Laptop","operating_system":"Windows 11 Pro","product_page_url":"https://www.dell.com/en-us/shop/laptop-computers/spd/dellpro16laptoppc16250"},{"cpu":"Intel Core 7 150U, 10 cores","ram":"16 GB DDR5","storage":"512 GB SSD","warranty":"Basic Hardware Service with Mail-In (1 year limited warranty)","price_usd":1994,"display_size":"16\"","product_name":"Dell Pro 16 Laptop","operating_system":"Windows 11 Pro","product_page_url":"https://www.dell.com/en-us/shop/laptop-computers/spd/dellpro16laptoppc16250"},{"cpu":"Up to Intel Core Ultra Processors (AI PC/Copilot+ PC options)","ram":"16 GB DDR5","storage":"Not specified in summary (configurable)","warranty":"Basic Hardware Service with Mail-In (1 year limited warranty)","price_usd":1826,"display_size":"16\"","product_name":"Dell Pro 16 Plus Laptop","operating_system":"Windows 11 Pro","product_page_url":"https://www.dell.com/en-us/shop/laptop-computers/spd/dellproplus16laptoppb16250"},{"cpu":"Up to AMD Ryzen AI PRO Processors (AI PC/Copilot+ PC options)","ram":"16 GB DDR5","storage":"Not specified in summary (configurable)","warranty":"Basic Hardware Service with Mail-In (1 year limited warranty)","price_usd":1255,"display_size":"16\"","product_name":"Dell Pro 16 Laptop (AMD)","operating_system":"Windows 11 Pro","product_page_url":"https://www.dell.com/en-us/shop/laptop-computers/spd/dellpro16laptoppc16255"}]}
+}

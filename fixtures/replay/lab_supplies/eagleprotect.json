@@ -1,0 +1,104 @@
+{
+ "_source": "Real TinyFish run 66df17d6-7485-4f12-92c9-25e7a0b4148f on 2026-10-16 (30 steps, 3m48s)",
+ "duration_s": 228,
+ "steps": [
+  "Opening eagleprotect.com Sensitive 4mil Nitrile product",
+  "Declining non-essential cookies",
+  "Reading certifications and case quantity",
+  "Reading returns link",
+  "Opening related: Blue52 5mil Nitrile",
+  "Opening related: Visible 6mil Nitrile - Black",
+  "Opening related: Diamond Textured 6mil Nitrile",
+  "Compiling extracted products as JSON"
+ ],
+ "result": {
+  "products": [
+   {
+    "sku": null,
+    "seller": "Eagle Protect",
+    "warranty": "Returns may be accepted, refer to Returns page for details.",
+    "condition": "New",
+    "price_usd": 80,
+    "powder_free": true,
+    "product_name": "Sensitive 4mil Nitrile Exam Gloves",
+    "stock_status": null,
+    "thickness_mil": 4,
+    "certifications": [
+     "Complies with USDA Organic Regulations",
+     "Medical Examination Grade",
+     "FDA (21 CFR 177) compliant for food handling",
+     "FDA 510(k) cleared for medical use",
+     "ASTM D6319",
+     "ASTM D6978 Chemotherapy Drug Tested",
+     "EN16523-1:2015 Resistance to Chemical Permeation",
+     "EN ISO 374-5:2016 Resistance to Bacteria, Fungi and Viruses",
+     "EN ISO 374-1:2016/Type B",
+     "Delta Zero verified",
+     "Made in a certified WRAP & Halal-certified facility"
+    ],
+    "count_per_case": 1000,
+    "product_page_url": "https://eagleprotect.com/products/sensitive-nitrile-gloves"
+   },
+   {
+    "sku": null,
+    "seller": "Eagle Protect",
+    "warranty": "Returns policy not explicitly stated, but general contact information and a Returns link are present in the footer.",
+    "condition": "New",
+    "price_usd": 100,
+    "powder_free": true,
+    "product_name": "Blue52 5mil Nitrile Gloves",
+    "stock_status": null,
+    "thickness_mil": 5,
+    "certifications": [
+     "Complies with USDA Organic Regulations",
+     "FDA (21 CFR 177) compliant for food handling",
+     "Tested for use with Fentanyl under ASTM D6978 conditions",
+     "EN ISO 374-1:2016/Type B",
+     "EN ISO 374-5:2016 Resistance to Bacteria, Fungi and Virus",
+     "Delta Zero verified",
+     "Made in a certified WRAP facility"
+    ],
+    "count_per_case": 1000,
+    "product_page_url": "https://eagleprotect.com/products/blue52-nitrile-gloves"
+   },
+   {
+    "sku": null,
+    "seller": "Eagle Protect",
+    "warranty": "Please refer to the Returns page for details.",
+    "condition": "New",
+    "price_usd": 145,
+    "powder_free": true,
+    "product_name": "Visible 6mil Nitrile Gloves - Black",
+    "stock_status": "In stock",
+    "thickness_mil": 6,
+    "certifications": [
+     "FDA (21 CFR 177) compliant for food handling",
+     "EN ISO 374-1:2016/Type B",
+     "EN ISO 374-5:2016 Resistance to Bacteria, Fungi and Virus",
+     "Tested for use with Fentanyl under ASTM D6978 conditions"
+    ],
+    "count_per_case": 1000,
+    "product_page_url": "https://eagleprotect.com/products/visible-nitrile-gloves-black"
+   },
+   {
+    "sku": null,
+    "seller": "Eagle Protect",
+    "warranty": null,
+    "condition": "New",
+    "price_usd": 160,
+    "powder_free": true,
+    "product_name": "Diamond Textured 6mil Nitrile Gloves - Black",
+    "stock_status": null,
+    "thickness_mil": 6,
+    "certifications": [
+     "AQL 1.5",
+     "FDA (21 CFR 177) compliant for food handling",
+     "EN ISO 374-1:2016/Type B",
+     "EN ISO 374-5:2016 Resistance to Bacteria, Fungi and Virus"
+    ],
+    "count_per_case": 1000,
+    "product_page_url": "https://eagleprotect.com/products/diamond-textured-nitrile-gloves-black-1"
+   }
+  ]
+ }
+}

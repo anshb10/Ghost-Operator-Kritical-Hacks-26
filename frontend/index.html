@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghost Operator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=11">
+<link rel="stylesheet" href="theme.css?v=1">
+<script>(function(){try{var t=localStorage.getItem("go-theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","light")}})();</script>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="logo" href="/">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 21V11a7 7 0 0 1 14 0v10l-2.3-1.8L14.3 21 12 19.2 9.7 21l-2.4-1.8z" fill="#fff"/>
+        <circle cx="9.6" cy="11.4" r="1.25" fill="#f2b13d"/><circle cx="14.4" cy="11.4" r="1.25" fill="#f2b13d"/></svg></span>
+      <span class="logo-name">Ghost Operator</span>
+      <span class="logo-tag">Evidence-first procurement</span>
+    </a>
+    <div class="stages" id="stages" aria-label="Mission progress"><span></span><span></span><span></span><span></span><span></span></div>
+    <span class="stage-label" id="stage-label">Ready</span>
+    <span class="status" id="mode"><i></i>Connecting</span>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch between light and dark theme" title="Switch theme">
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="toast hidden" id="toast" role="alert"><span id="toast-msg"></span><button class="x" id="toast-x" aria-label="Dismiss">✕</button></div>
+  <!-- console -->
+  <section class="console">
+    <div>
+      <span class="eyebrow">New mission</span>
+      <h1>Describe what you need. <em>Ghost Operator checks before you buy.</em></h1>
+      <p class="lede">It finds suppliers, sends browser agents to read their listings, re-checks every claim on the vendor's own page, prices the order to the door, and brings you an evidence-backed recommendation to approve.</p>
+      <div class="composer">
+        <textarea id="objective" rows="3" aria-label="Objective">I need to purchase 50 laptops for my new office. 16GB RAM, Windows 11 Pro, ideally 3-year onsite warranty. Total budget $75k. Find the best options, compare vendors, flag warranty risks and prepare a purchase recommendation.</textarea>
+        <div class="composer-bar">
+          <div class="chips" id="examples"></div>
+          <div class="composer-go">
+            <div class="seg hidden" id="mode-seg" role="radiogroup" aria-label="Data source">
+              <button role="radio" data-mode="live">Live web</button><button role="radio" data-mode="replay">Recordings &amp; fixtures</button>
+            </div>
+            <button id="btn-plan" class="btn btn-gold">Plan mission <span class="arrow">→</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="pipeline" aria-label="Mission pipeline">
+      <h3><span>Mission pipeline</span><span id="pipe-mode"></span></h3>
+      <ol id="pipe">
+        <li><span class="pd"><b>01</b></span><div><div class="pt">Plan</div><div class="ps">Objective → requirements</div></div><span class="pa">AI planner</span></li>
+        <li><span class="pd"><b>02</b></span><div><div class="pt">Discover</div><div class="ps">Find stores on the live web</div></div><span class="pa">TinyFish Search</span></li>
+        <li><span class="pd"><b>03</b></span><div><div class="pt">Source</div><div class="ps">Agents read listings in parallel</div></div><span class="pa">TinyFish Agent</span></li>
+        <li><span class="pd"><b>04</b></span><div><div class="pt">Verify</div><div class="ps">Claims, small print, traps</div></div><span class="pa">TinyFish Fetch</span></li>
+        <li><span class="pd"><b>05</b></span><div><div class="pt">Decide</div><div class="ps">Landed cost, risk, you approve</div></div><span class="pa">Policy + you</span></li>
+      </ol>
+    </aside>
+  </section>
+
+  <!-- history -->
+  <section class="section hidden" id="s-history">
+    <div class="section-hd"><h2>Mission history</h2><span class="sub" id="history-sub"></span>
+      <button id="btn-history-all" class="btn btn-link right"></button></div>
+    <div class="history" id="history"></div>
+  </section>
+
+  <!-- plan -->
+  <section class="section hidden" id="s-plan">
+    <div class="section-hd"><span class="idx">02</span><h2>Mission plan</h2><span class="sub" id="planner-used"></span></div>
+    <div class="plan-grid">
+      <div class="card">
+        <div class="card-hd"><h3>Requirements</h3><span class="meta">Must-haves filter offers out · the rest are scored</span></div>
+        <div class="card-bd">
+          <div class="grid3">
+            <label class="field">Item<input id="r-item"></label>
+            <label class="field">Quantity<input id="r-qty" type="number" min="1"></label>
+            <label class="field">Currency<select id="r-cur"><option value="USD">USD ($)</option><option value="INR">INR (₹)</option></select></label>
+            <label class="field"><span id="r-budget-l">Total budget, landed</span><input id="r-budget" type="number" min="0" placeholder="No limit"></label>
+            <label class="field">Deliver within (days)<input id="r-deadline" type="number" min="0" placeholder="No deadline"></label>
+            <label class="field" id="r-state-f">Ship-to state<input id="r-state" placeholder="e.g. Karnataka" maxlength="40"></label>
+          </div>
+          <table class="cons"><thead><tr><th>Attribute</th><th>Rule</th><th>Value</th><th>Must-have</th><th>Weight</th><th></th></tr></thead>
+            <tbody id="cons"></tbody></table>
+          <button id="btn-addc" class="btn btn-link">+ Add requirement</button>
+          <p class="notes" id="r-notes"></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-hd"><h3>Vendors</h3><span class="meta" id="vendor-count"></span></div>
+        <div class="card-bd">
+          <div class="searchline" id="searchline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><span id="search-q"></span></div>
+          <div class="vlist" id="vendors"></div>
+          <button id="btn-run" class="btn btn-primary btn-block" style="margin-top:16px">Dispatch agents <span class="arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- agents -->
+  <section class="section hidden" id="s-agents">
+    <div class="section-hd"><span class="idx">03</span><h2>Agents in the field</h2><span class="sub" id="agents-sub"></span></div>
+    <div id="agents" class="agents"></div>
+  </section>
+
+  <!-- analysis -->
+  <section class="section hidden" id="s-ml">
+    <div class="section-hd"><span class="idx">04</span><h2>Verification &amp; analysis</h2><span class="sub">Evidence · adversarial checks · cost · risk</span></div>
+    <div class="card"><div class="mlflow" id="mlflow"></div></div>
+  </section>
+
+  <!-- recommendation -->
+  <section class="section hidden" id="s-report">
+    <div class="section-hd"><span class="idx">05</span><h2>Decision brief</h2><span class="sub" id="summary-by"></span>
+      <div class="right exports"><a id="report-link" class="btn btn-ghost btn-sm" target="_blank">Decision report</a>
+        <a id="po-link" class="btn btn-ghost btn-sm" target="_blank">Purchase order</a></div></div>
+    <div class="banner warn hidden" id="fixture-banner"></div>
+    <div class="brief">
+      <div class="card pick" id="pick"></div>
+      <div class="kpis" id="kpis"></div>
+    </div>
+    <div class="card memo"><div class="memo-hd"><span class="eyebrow">Recommendation memo</span><span class="memo-check" id="memo-check"></span></div><p id="memo"></p><div class="memo-act" id="memo-act"></div></div>
+
+    <div class="two">
+      <div class="card">
+        <div class="card-hd"><h3>How this was decided</h3><span class="meta">Fixed evidence policy, not an agent vote</span></div>
+        <div class="card-bd"><ol class="trace" id="trace"></ol><details class="policy"><summary>Policy and responsibilities</summary><div id="roles"></div></details></div>
+      </div>
+      <div class="card">
+        <div class="card-hd"><h3>Misleading-offer findings</h3><span class="meta" id="findings-meta"></span></div>
+        <div class="card-bd findings" id="findings"></div>
+      </div>
+    </div>
+    <div id="insights" class="insights"></div>
+
+    <div class="card sim">
+      <div class="card-hd"><div><h3>Scenario simulator</h3><span class="meta">Change a constraint; the same offers go through the same engine. Nothing is saved unless you approve under it.</span></div>
+        <button class="btn btn-ghost btn-sm" id="sim-reset">Reset to mission</button></div>
+      <div class="card-bd">
+        <div class="sim-grid">
+          <div class="sim-controls">
+            <div class="grid4">
+              <label class="field"><span id="sim-budget-l">Budget</span><input id="sim-budget" type="number" min="0" placeholder="No limit"></label>
+              <label class="field">Deadline (days)<input id="sim-deadline" type="number" min="0" placeholder="None"></label>
+              <label class="field">Quantity<input id="sim-qty" type="number" min="1"></label>
+              <label class="field">Tax rate %<input id="sim-tax" type="number" min="0" max="100" step="0.5" placeholder="Default"></label>
+            </div>
+            <div class="sim-cons" id="sim-cons"></div>
+            <details class="weights"><summary>Ranking weights</summary><div class="sliders" id="sliders"></div></details>
+          </div>
+          <div class="sim-out" id="sim-out" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card tablecard">
+      <div class="card-hd"><div><h3>All offers</h3><span class="meta" id="offers-meta"></span></div>
+        <div class="tools"><button id="btn-compare" class="btn btn-ghost btn-sm" disabled>Compare</button>
+          <a id="csv-link" class="btn btn-ghost btn-sm" download>Export CSV</a></div></div>
+      <div class="tablewrap"><table class="offers"><thead><tr>
+        <th class="cmpcol" title="Tick up to 3 offers to compare"><span class="sr">Compare</span></th><th>#</th><th>Product</th><th class="num">Unit price</th><th class="num">Landed total</th><th>Fit</th>
+        <th>Warranty</th><th>Supplier risk</th><th class="num">Score</th><th></th></tr></thead>
+        <tbody id="offers"></tbody></table></div>
+      <div class="foot-note" id="price-note"></div>
+    </div>
+
+    <div class="two">
+      <div class="card" id="outcome-card">
+        <div class="card-hd"><h3>Outcome</h3><span class="meta">Feeds procurement memory and the supplier's track record</span></div>
+        <div class="card-bd" id="outcome"></div>
+      </div>
+      <div class="card">
+        <div class="card-hd"><h3>Audit trail</h3><span class="meta" id="audit-meta"></span>
+          <a id="audit-link" class="btn btn-ghost btn-sm" download>Download JSON</a></div>
+        <div class="card-bd"><ol class="timeline" id="audit"></ol></div>
+      </div>
+    </div>
+    <div class="decide" id="decision"></div>
+    <p class="hint">Nothing is ordered or sent. Approving only finalizes the purchase-order document and the audit record.</p>
+  </section>
+  <dialog id="dlg-compare" class="dlg wide" aria-labelledby="cmp-title">
+    <div class="dlg-hd"><h3 id="cmp-title">Side-by-side comparison</h3><button class="x" data-close aria-label="Close">✕</button></div>
+    <div class="dlg-bd"><div class="tablewrap" id="cmp-body"></div></div>
+  </dialog>
+  <dialog id="dlg-quote" class="dlg" aria-labelledby="q-title">
+    <div class="dlg-hd"><h3 id="q-title">Quote request</h3><button class="x" data-close aria-label="Close">✕</button></div>
+    <div class="dlg-bd">
+      <label class="field">Subject<input id="q-subject"></label>
+      <label class="field" style="margin-top:12px">Message<textarea id="q-body" rows="16"></textarea></label>
+      <p class="hint">Draft only. Ghost Operator never sends it. Copy it into your mail client and add the vendor's address.</p>
+    </div>
+    <div class="dlg-ft"><a id="q-mail" class="btn btn-ghost">Open in mail app</a><button id="q-copy" class="btn btn-primary">Copy message</button></div>
+  </dialog>
+</main>
+<footer><span>Ghost Operator · web agents, search and fetch by TinyFish</span><span>Prices are captured from vendor sites (or labelled test fixtures) and may change.</span></footer>
+<script src="theme.js?v=1"></script>
+<script src="app.js?v=12"></script>
+</body>
+</html>
